@@ -32,6 +32,13 @@ go get -u golang.org/x/tools/cmd/goimports
 go get -u github.com/golang/lint/golint
 ```
 
+Set the following TextMate variables in the preferences (adjust paths to your own configuration):
+
+    TM_GOCODE=/Users/myuser/bin/gocode
+    TM_GODOC=/usr/local/Cellar/go/1.5.1/libexec/bin/godoc
+    TM_GOFMT=/Users/myuser/bin/goimports
+    TM_GOPATH=/Users/myuser
+
 ### Features
 The bundle implements language syntax, completion via gocode, some snippets, and some compile/format/documentation commands for the [Go language](http://golang.org/).
 
