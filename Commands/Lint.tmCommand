@@ -24,6 +24,17 @@ Go::golint
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>golint</string>
+			<key>moreInfoURL</key>
+			<string>https://github.com/syscrusher/golang.tmbundle</string>
+			<key>variable</key>
+			<string>TM_GOLINT</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.go</string>
 	<key>uuid</key>

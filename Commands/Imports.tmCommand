@@ -24,6 +24,17 @@ Go::goimports
 	<string>text</string>
 	<key>outputLocation</key>
 	<string>replaceDocument</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>goimports</string>
+			<key>moreInfoURL</key>
+			<string>https://github.com/syscrusher/golang.tmbundle</string>
+			<key>variable</key>
+			<string>TM_GOIMPORTS</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.go</string>
 	<key>uuid</key>
