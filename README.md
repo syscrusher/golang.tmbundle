@@ -36,8 +36,10 @@ Set the following TextMate variables in the preferences (adjust paths to your ow
 
     TM_GOCODE=/Users/myuser/bin/gocode
     TM_GODOC=/usr/local/Cellar/go/1.5.1/libexec/bin/godoc
-    TM_GOFMT=/Users/myuser/bin/goimports
+    TM_GOFMT=/Users/myuser/bin/gofmt # or /Users/myuser/bin/goimports
     TM_GOPATH=/Users/myuser
+    TM_GOIMPORTS=/Users/myuser/bin/goimports
+    TM_GOLINT=/Users/myuser/bin/golint
 
 ### Features
 The bundle implements language syntax, completion via gocode, some snippets, and some compile/format/documentation commands for the [Go language](http://golang.org/).
