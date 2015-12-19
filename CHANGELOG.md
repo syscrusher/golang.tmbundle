@@ -1,6 +1,11 @@
-Planned:
-- Rework some snippets, like a single import without an alias
-- Add support for all go tools like fix, vet, oracle
+## 3.4.0 / 2015-12-18
+- [New grammar for Go HTML templates @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/197a72fd128d574e5ec907ec55f51d72c3e163bc)
+- [Proper syntax highlighting for types @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/04083c428fd8ca75c9483e9a8ac09421e67b9d29)
+- [Don't save document before completion- godef uses stdin @msoap](https://github.com/syscrusher/golang.tmbundle/commit/d1d3a8018d4c0e3eed14288dff38d4e32f5d0e1e)
+- [Reapply bugfix when TM_GOPATH not set @tg](https://github.com/syscrusher/golang.tmbundle/commit/4372808d35a64b7934575c0572d0b7de3108cc14)
+- [Improve README about env vars @willfaught](https://github.com/syscrusher/golang.tmbundle/commit/9f4fca8be6e6d3ffb99c6e23aa193a30ac075627)
+- [Use required commands for goimports and golint @rdwampler](https://github.com/syscrusher/golang.tmbundle/commit/b4427d9df7be869965d7008b86b47d3534fb3f72)
+
 
 ### 3.3.0 / 2015-11-27
 - [Hand crafted, beautiful icons that work on HiDPI and lower resolutions @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/6eac77254101eac2d325bc729b633f243865d87b)

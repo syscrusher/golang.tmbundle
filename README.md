@@ -1,26 +1,18 @@
-## golang.tmbundle v3.3.0
+## golang.tmbundle v3.4.0
 (a TextMate 2 bundle for the go programming language)
 
 ### Installation
 TextMate should detect .go files and load this bundle. This bundle is a fork from [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle) with additional improvements merged from around the community.
 
 Changes from the original version (see full changelog for more details):
+- Substantially improved syntax highlighting (thanks [nanoant](https://github.com/nanoant))
 - Support for goimports and golint (thanks [fmccann](https://github.com/fmccann))
-- Improved syntax highlighting (thanks [nanoant](https://github.com/nanoant))
 - Users can supply commands via ENV variables (TM\_GO\_DYNAMIC\_GOPATH, TM\_GO\_DYNAMIC\_PKG, TM\_GO\_DYNAMIC\_PKG\_PATH). The bundle will consult these commands if defined to dynamically change the gopath or package based on the current directory. (thanks [fmccann](https://github.com/fmccann))
 - all non-run go commands operate on the current directory instead of per file if the package is not defined dynamically. (thanks [tg](https://github.com/tg)).
 - run and build work on unsaved files (thanks [tg](https://github.com/tg))
 - added print, println, printf, and fprintf snippets (thanks [jish](https://github.com/jish))
 - HiDPI completion icons (thanks [nanoant](https://github.com/nanoant))
 - bugfixes (thanks everyone!)
-
-To install this bundle manually, open a Terminal window and do:
-
-```Shell
-mkdir -p ~/Library/Application\ Support/Avian/Pristine\ Copy/Bundles
-cd ~/Library/Application\ Support/Avian/Pristine\ Copy/Bundles
-git clone git://github.com/syscrusher/golang.tmbundle.git
-```
 
 
 This bundle uses gocode for completion, godoc for documentation, golint for linting, and goimports for automatic imports and formatting. These can be installed with the following commands:
@@ -32,6 +24,7 @@ go get -u golang.org/x/tools/cmd/goimports
 go get -u github.com/golang/lint/golint
 ```
 
+
 Set the following TextMate variables in the preferences (adjust paths to your own configuration):
 
     TM_GOCODE=/Users/myuser/bin/gocode
@@ -40,6 +33,15 @@ Set the following TextMate variables in the preferences (adjust paths to your ow
     TM_GOPATH=/Users/myuser
     TM_GOIMPORTS=/Users/myuser/bin/goimports
     TM_GOLINT=/Users/myuser/bin/golint
+
+
+To install this bundle manually, open a Terminal window and do:
+
+```Shell
+mkdir -p ~/Library/Application\ Support/Avian/Pristine\ Copy/Bundles
+cd ~/Library/Application\ Support/Avian/Pristine\ Copy/Bundles
+git clone git://github.com/syscrusher/golang.tmbundle.git
+```
 
 ### Features
 The bundle implements language syntax, completion via gocode, some snippets, and some compile/format/documentation commands for the [Go language](http://golang.org/).
