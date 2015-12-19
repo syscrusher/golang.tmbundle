@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>HTML (Go)</string>
+	<key>scope</key>
+	<string>text.html.go</string>
+	<key>settings</key>
+	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>(?x)
+		^\s*
+		(&lt;/(?!html)
+		  [A-Za-z0-9]+\b[^&gt;]*&gt;
+		|--&gt;
+		|^\s*{{\s*(?:else(?: if)?|end)\b.*?}}$
+		|\}
+		)</string>
+		<key>foldingStartMarker</key>
+		<string>(?x)
+				(&lt;(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl|section|article|header|footer|nav|aside)\b.*?&gt;
+				|&lt;!--(?!.*--\s*&gt;)
+				|^\s*{{\s*(?:if|else(?: if)?|range|with)\b.*?(?&lt;!end)}}$
+			)</string>
+		<key>foldingStopMarker</key>
+		<string>(?x)
+				(&lt;/(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl|section|article|header|footer|nav|aside)&gt;
+				|^(?!.*?&lt;!--).*?--\s*&gt;
+				|^\s*{{\s*(?:else(?: if)?|end)\b.*?}}$
+			)</string>
+		<key>increaseIndentPattern</key>
+		<string>(?x)
+		&lt;(?!\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\b|[^&gt;]*/&gt;)
+		  ([A-Za-z0-9]+)(?=\s|&gt;)\b[^&gt;]*&gt;(?!.*&lt;/\1&gt;)
+		|&lt;!--(?!.*--&gt;)
+		|^\s*{{\s*(?:if|else(?: if)?|range|with)\b.*?(?&lt;!end)}}$
+		|\{[^}"']*$
+		</string>
+	</dict>
+	<key>uuid</key>
+	<string>4D9E08E8-FD1E-44AC-BF35-B4FB836F3367</string>
+</dict>
+</plist>
