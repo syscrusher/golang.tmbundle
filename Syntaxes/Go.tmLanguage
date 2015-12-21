@@ -469,7 +469,7 @@
 					<key>comment</key>
 					<string>This matches the 'var x' style of variable declaration.</string>
 					<key>match</key>
-					<string>^\s*(var)\s+((?:[[:alpha:]_]\w*)(?:,\s+[[:alpha:]_]\w*)*)\s*(.*)\s*(?:=|$)</string>
+					<string>^\s*(var)\s+((?:[[:alpha:]_]\w*)(?:,\s+[[:alpha:]_]\w*)*)\s*(.*?)\s*(?:=|$)</string>
 					<key>name</key>
 					<string>meta.initialization.explicit.go</string>
 				</dict>
