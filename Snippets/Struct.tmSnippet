@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>struct {
-	${0:member}
+	<string>type ${1:Foo} struct {
+	${2:Bar} ${0:string}
 }</string>
 	<key>name</key>
 	<string>Struct</string>
