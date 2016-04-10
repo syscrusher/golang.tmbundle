@@ -27,8 +27,8 @@ def go_path
     lcal, root = [], []
     env.scan(/^GO(PATH|ROOT)=&quot;(.*)&quot;/) do |key,value|
       case key
-      when &apos;PATH&apos;: lcal = value.split(&apos;:&apos;).map { |dir| &quot;#{dir}/src&quot; }
-      when &apos;ROOT&apos;: root = value.split(&apos;:&apos;).map { |dir| &quot;#{dir}/src/pkg&quot; }
+      when &apos;PATH&apos;; lcal = value.split(&apos;:&apos;).map { |dir| &quot;#{dir}/src&quot; }
+      when &apos;ROOT&apos;; root = value.split(&apos;:&apos;).map { |dir| &quot;#{dir}/src/pkg&quot; }
       end
     end
     [ lcal, root ].flatten
