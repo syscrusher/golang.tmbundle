@@ -51,7 +51,6 @@ module Go
       args.push(ENV['TM_FILEPATH'])
     else
       args.push("-v") # list packages being operated on
-      args.push(pkg)
       opts[:noun] = pkg
     end
     args.push(opts)
