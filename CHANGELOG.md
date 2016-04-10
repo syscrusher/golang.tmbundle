@@ -1,3 +1,9 @@
+## 3.5.0 / 2016-04-10
+- [Remove Ruby18 dependency where possible- partial fix for issue #26 @syscrusher](https://github.com/syscrusher/golang.tmbundle/commit/dd5f60822da08ff1c956e722a9ef54bfad0b84e7)
+- [Add a more helpful struct snippet @jish](https://github.com/syscrusher/golang.tmbundle/commit/82d13cea3a3c67b3584a62a3fae7f34f6fefd641)
+- [Fix var x= init(...) highlighting @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/6e3d2294ffd7df69e4a6fc778fdbb2864cb1ea4c)
+- [Fix issue #23: 'cannot import absolute path' error on build/install @syscrusher](https://github.com/syscrusher/golang.tmbundle/commit/ea01788ba80c30d5fb353d99f63332cd1e7d0dc0)
+
 ## 3.4.0 / 2015-12-18
 - [New grammar for Go HTML templates @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/197a72fd128d574e5ec907ec55f51d72c3e163bc)
 - [Proper syntax highlighting for types @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/04083c428fd8ca75c9483e9a8ac09421e67b9d29)
@@ -5,7 +11,6 @@
 - [Reapply bugfix when TM_GOPATH not set @tg](https://github.com/syscrusher/golang.tmbundle/commit/4372808d35a64b7934575c0572d0b7de3108cc14)
 - [Improve README about env vars @willfaught](https://github.com/syscrusher/golang.tmbundle/commit/9f4fca8be6e6d3ffb99c6e23aa193a30ac075627)
 - [Use required commands for goimports and golint @rdwampler](https://github.com/syscrusher/golang.tmbundle/commit/b4427d9df7be869965d7008b86b47d3534fb3f72)
-
 
 ### 3.3.0 / 2015-11-27
 - [Hand crafted, beautiful icons that work on HiDPI and lower resolutions @nanoant](https://github.com/syscrusher/golang.tmbundle/commit/6eac77254101eac2d325bc729b633f243865d87b)

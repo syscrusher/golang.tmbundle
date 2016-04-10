@@ -10,7 +10,8 @@ Changes from the original version (see full changelog for more details):
 - Users can supply commands via ENV variables (TM\_GO\_DYNAMIC\_GOPATH, TM\_GO\_DYNAMIC\_PKG, TM\_GO\_DYNAMIC\_PKG\_PATH). The bundle will consult these commands if defined to dynamically change the gopath or package based on the current directory. (thanks [fmccann](https://github.com/fmccann))
 - all non-run go commands operate on the current directory instead of per file if the package is not defined dynamically. (thanks [tg](https://github.com/tg)).
 - run and build work on unsaved files (thanks [tg](https://github.com/tg))
-- added print, println, printf, and fprintf snippets (thanks [jish](https://github.com/jish))
+- added print, println, printf, and fprintf snippets; improved struct snippet (thanks 
+[jish](https://github.com/jish))
 - HiDPI completion icons (thanks [nanoant](https://github.com/nanoant))
 - bugfixes (thanks everyone!)
 
