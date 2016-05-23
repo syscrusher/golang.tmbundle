@@ -1,3 +1,6 @@
+## 3.5.1 / 2016-05-23
+- [Fix autocomplete failure @syscrusher](https://github.com/syscrusher/golang.tmbundle/commit/59c296e56447eec8e0053b699865ca2ba4c5c30b)
+
 ## 3.5.0 / 2016-04-10
 - [Remove Ruby18 dependency where possible- partial fix for issue #26 @syscrusher](https://github.com/syscrusher/golang.tmbundle/commit/dd5f60822da08ff1c956e722a9ef54bfad0b84e7)
 - [Add a more helpful struct snippet @jish](https://github.com/syscrusher/golang.tmbundle/commit/82d13cea3a3c67b3584a62a3fae7f34f6fefd641)

@@ -1,4 +1,4 @@
-## golang.tmbundle v3.4.0
+## golang.tmbundle v3.5.1
 (a TextMate 2 bundle for the go programming language)
 
 ### Installation
