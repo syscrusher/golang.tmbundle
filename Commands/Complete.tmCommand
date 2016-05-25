@@ -15,6 +15,17 @@ require ENV['TM_SUPPORT_PATH'] + "/lib/tm/require_cmd.rb"
 require ENV['TM_SUPPORT_PATH'] + "/lib/tm/htmloutput.rb"
 require ENV['TM_SUPPORT_PATH'] + "/lib/web_preview"
 
+# TextMate's special GOPATH used in .tm_properties files prepended to the environment's GOPATH
+ENV['GOPATH'] = (ENV.has_key?('TM_GOPATH') ? ENV['TM_GOPATH'] : '') +
+                (ENV.has_key?('GOPATH') ? ':' + ENV['GOPATH'] : '').sub(/^:+/,'')
+
+# Call tool to determine gopath
+if ENV.has_key?('TM_GO_DYNAMIC_GOPATH')
+  Dir.chdir(ENV['TM_DIRECTORY']) do
+    ENV['GOPATH'] = `#{ENV['TM_GO_DYNAMIC_GOPATH']}`.chomp
+  end
+end
+
 gocode = ENV['TM_GOCODE'] || 'gocode'
 
 # load current document from stdin
