@@ -1,51 +1,35 @@
-## golang.tmbundle v3.5.1
-(a TextMate 2 bundle for the go programming language)
+## golang.tmbundle
+(a [TextMate 2](https://github.com/textmate/textmate) bundle for the [go programming language](https://golang.org))
+
+### Features
+
+- Syntax highlighting
+- Run, build, test, and install packages
+- Code completion with gocode
+- View documentation with godoc
+- Formatting with gofmt
+- Automatic imports with goimports
+- Linting with golint
+- 45 snippets
 
 ### Installation
-TextMate should detect .go files and load this bundle. This bundle is a fork from [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle) with additional improvements merged from around the community.
-
-Changes from the original version (see full changelog for more details):
-- Substantially improved syntax highlighting (thanks [nanoant](https://github.com/nanoant))
-- Support for goimports and golint (thanks [fmccann](https://github.com/fmccann))
-- Users can supply commands via ENV variables (TM\_GO\_DYNAMIC\_GOPATH, TM\_GO\_DYNAMIC\_PKG, TM\_GO\_DYNAMIC\_PKG\_PATH). The bundle will consult these commands if defined to dynamically change the gopath or package based on the current directory. (thanks [fmccann](https://github.com/fmccann))
-- all non-run go commands operate on the current directory instead of per file if the package is not defined dynamically. (thanks [tg](https://github.com/tg)).
-- run and build work on unsaved files (thanks [tg](https://github.com/tg))
-- added print, println, printf, and fprintf snippets; improved struct snippet (thanks 
-[jish](https://github.com/jish))
-- HiDPI completion icons (thanks [nanoant](https://github.com/nanoant))
-- bugfixes (thanks everyone!)
-
+TextMate should detect .go files and load this bundle automatically.
 
 This bundle uses gocode for completion, godoc for documentation, golint for linting, and goimports for automatic imports and formatting. These can be installed with the following commands:
 
-```Shell
-go get -u github.com/nsf/gocode
-go get -u golang.org/x/tools/cmd/godoc
-go get -u golang.org/x/tools/cmd/goimports
-go get -u github.com/golang/lint/golint
-```
+	go get -u github.com/nsf/gocode
+	go get -u golang.org/x/tools/cmd/godoc
+	go get -u golang.org/x/tools/cmd/goimports
+	go get -u github.com/golang/lint/golint
 
+You may override the following TextMate variables in the preferences (adjust paths to your own configuration):
 
-Set the following TextMate variables in the preferences (adjust paths to your own configuration):
-
-    TM_GOCODE=/Users/myuser/bin/gocode
-    TM_GODOC=/usr/local/Cellar/go/1.5.1/libexec/bin/godoc
-    TM_GOFMT=/Users/myuser/bin/gofmt # or /Users/myuser/bin/goimports
-    TM_GOPATH=/Users/myuser
-    TM_GOIMPORTS=/Users/myuser/bin/goimports
-    TM_GOLINT=/Users/myuser/bin/golint
-
-
-To install this bundle manually, open a Terminal window and do:
-
-```Shell
-mkdir -p ~/Library/Application\ Support/Avian/Pristine\ Copy/Bundles
-cd ~/Library/Application\ Support/Avian/Pristine\ Copy/Bundles
-git clone git://github.com/syscrusher/golang.tmbundle.git
-```
-
-### Features
-The bundle implements language syntax, completion via gocode, some snippets, and some compile/format/documentation commands for the [Go language](http://golang.org/).
+	TM_GOPATH=/Users/myuser
+	TM_GOCODE=/Users/myuser/bin/gocode
+	TM_GODOC=/usr/local/Cellar/go/1.5.1/libexec/bin/godoc
+	TM_GOFMT=/Users/myuser/bin/gofmt # or /Users/myuser/bin/goimports
+	TM_GOIMPORTS=/Users/myuser/bin/goimports
+	TM_GOLINT=/Users/myuser/bin/golint
 
 ### Snippets
 
@@ -122,8 +106,22 @@ Ctrl-H			|	Show the Go HTML documentation for the currently-selected symbol.
 \<ESC\>			|	Complete the symbol under the cursor.
 
 ### Thanks
-This is a fork from [Jim Dovey](https://github.com/AlanQuatermain) who has done most of the work in maintaining the bundle and deserves everyone's gratitude. The following are his attributions for this bundle.
 
+This repository is a fork from [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle) with additional improvements merged from around the community.
+Changes from the original version (see git log for more details):
+
+- Substantially improved syntax highlighting (thanks [nanoant](https://github.com/nanoant))
+- Support for goimports and golint (thanks [fmccann](https://github.com/fmccann))
+- Users can supply commands via ENV variables (TM\_GO\_DYNAMIC\_GOPATH, TM\_GO\_DYNAMIC\_PKG, TM\_GO\_DYNAMIC\_PKG\_PATH). The bundle will consult these commands if defined to dynamically change the gopath or package based on the current directory. (thanks [fmccann](https://github.com/fmccann))
+- all non-run go commands operate on the current directory instead of per file if the package is not defined dynamically. (thanks [tg](https://github.com/tg)).
+- run and build work on unsaved files (thanks [tg](https://github.com/tg))
+- added print, println, printf, and fprintf snippets; improved struct snippet (thanks 
+[jish](https://github.com/jish))
+- HiDPI completion icons (thanks [nanoant](https://github.com/nanoant))
+- Completion support for GOPATH and current package (thanks [syscrusher](https://github.com/syscrusher))
+- bugfixes (thanks everyone!)
+
+[Jim Dovey](https://github.com/AlanQuatermain) deserves everyone's gratitude for his hard work on this bundle. The following are his original attributions:
 >Much of the current infrastructure was created by [Martin Kühl](http://github.com/mkhl), who is a significantly more seasoned TextMate bundle developer than I, and to whom I am eternally grateful.
 
 >Support for Go 1.0 was provided by [Jeremy Whitlock](http://github.com/whitlockjc) and [Michael Sheets](http://github.com/infininight), with additional code and fixes from [Sylvain Defresne](http://github.com/sdefresne), [liuyork](http://github.com/liuyork), and [Alexey Palazhchenko](http://github.com/AlekSi).
