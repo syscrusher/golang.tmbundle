@@ -8,37 +8,37 @@
 	<string>#!/usr/bin/env ruby
 
 require "#{ENV['TM_BUNDLE_SUPPORT']}/gomate"
-Go::godoc
+Go::gogetdoc
 </string>
 	<key>fallbackInput</key>
 	<string>word</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^h</string>
 	<key>name</key>
-	<string>Documentation for Word / Selection</string>
+	<string>Documentation</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
-	<string>html</string>
+	<string>text</string>
 	<key>outputLocation</key>
 	<string>toolTip</string>
 	<key>requiredCommands</key>
 	<array>
 		<dict>
 			<key>command</key>
-			<string>godoc</string>
+			<string>gogetdoc</string>
 			<key>locations</key>
 			<array>
-				<string>/opt/local/bin/godoc</string>
-				<string>/usr/local/bin/godoc</string>
-				<string>/usr/local/go/bin/godoc</string>
+				<string>/opt/local/bin/gogetdoc</string>
+				<string>/usr/local/bin/gogetdoc</string>
+				<string>/usr/local/go/bin/gogetdoc</string>
 			</array>
 			<key>variable</key>
-			<string>TM_GODOC</string>
+			<string>TM_GOGETDOC</string>
 		</dict>
 	</array>
 	<key>scope</key>

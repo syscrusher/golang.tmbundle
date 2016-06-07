@@ -1,9 +1,10 @@
-#!/usr/bin/env ruby18
+#!/usr/bin/env ruby18 -wKU
 
 require "#{ENV['TM_SUPPORT_PATH']}/lib/escape"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/exit_codes"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/ui"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/web_preview"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/require_cmd.rb"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
 
@@ -57,37 +58,40 @@ module Go
 
     TextMate::Executor.run(go_cmd, command, *args)
   end
-
-  def Go::godoc
-    # TextMate's special TM_GODOC or expect 'godoc' on PATH
-    godoc_cmd = ENV['TM_GODOC'] || 'godoc'
-    term = STDIN.read.strip
+  
+  def Go::gogetdoc
+    # TextMate's special TM_GOGETDOC or expect 'gogetdoc' on PATH
+    gogetdoc_cmd = ENV['TM_GOGETDOC'] || 'gogetdoc'
+    
+    # Save file. gogetdoc only accepts guru's archive format, which we don't currently support
     TextMate.save_if_untitled('go')
-
-    if term.nil? || term.empty?
-      term = TextMate::UI.request_string( :title => 'Go Documentation Search',
-                                          :prompt => 'Enter a term to search for:',
-                                          :button1 => 'Search')
+    
+    # load current document from stdin
+    document = []
+    while line = $stdin.gets
+      document.push(line)
     end
 
-    TextMate.exit_show_tool_tip('Please select a term to look up.') if term.nil? || term.empty?
+    # byte offset of cursor position from the beginning of file
+    cursor = document[ 0, ENV['TM_LINE_NUMBER'].to_i - 1].join().length + ENV['TM_LINE_INDEX'].to_i
 
     args = []
-    args.push(godoc_cmd)
-    args.push('-html')
-    args.push('-tabwidth=0')
-    args.concat term.split('.')
+    args.push(gogetdoc_cmd)
+    args.push('-pos')
+    args.push("#{ENV['TM_FILEPATH']}:##{cursor}")
 
     out, err = TextMate::Process.run(*args)
 
     if err.nil? || err == ''
-      html_header("Documentation for #{term}", "go")
-      puts out
-      html_footer
-      TextMate.exit_show_html
+      if out.length < 400
+        TextMate.exit_show_tool_tip(out)
+      else
+        TextMate.exit_create_new_document(out)
+      end
     else
       TextMate.exit_show_tool_tip(err)
     end
+    
   end
 
   def Go::gofmt

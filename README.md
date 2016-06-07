@@ -6,7 +6,7 @@
 - Syntax highlighting
 - Run, build, test, and install packages
 - Code completion with gocode
-- View documentation with godoc
+- View documentation with gogetdoc (Requires Go 1.6+)
 - Formatting with gofmt
 - Automatic imports with goimports
 - Linting with golint
@@ -15,10 +15,10 @@
 ### Installation
 TextMate should detect .go files and load this bundle automatically.
 
-This bundle uses gocode for completion, godoc for documentation, golint for linting, and goimports for automatic imports and formatting. These can be installed with the following commands:
+This bundle uses gocode for completion, gogetdoc for documentation, golint for linting, and goimports for automatic imports and formatting. These can be installed with the following commands:
 
 	go get -u github.com/nsf/gocode
-	go get -u golang.org/x/tools/cmd/godoc
+	go get -u github.com/zmb3/gogetdoc
 	go get -u golang.org/x/tools/cmd/goimports
 	go get -u github.com/golang/lint/golint
 
@@ -26,7 +26,7 @@ You may override the following TextMate variables in the preferences (adjust pat
 
 	TM_GOPATH=/Users/myuser
 	TM_GOCODE=/Users/myuser/bin/gocode
-	TM_GODOC=/usr/local/Cellar/go/1.5.1/libexec/bin/godoc
+	TM_GOGETDOC=/Users/myuser/bin/gogetdoc
 	TM_GOFMT=/Users/myuser/bin/gofmt # or /Users/myuser/bin/goimports
 	TM_GOIMPORTS=/Users/myuser/bin/goimports
 	TM_GOLINT=/Users/myuser/bin/golint
@@ -118,6 +118,7 @@ Changes from the original version (see git log for more details):
 - added print, println, printf, and fprintf snippets; improved struct snippet (thanks 
 [jish](https://github.com/jish))
 - HiDPI completion icons (thanks [nanoant](https://github.com/nanoant))
+- Improved, expanded documentation coverage (thanks [syscrusher](https://github.com/syscrusher))
 - Completion support for GOPATH and current package (thanks [syscrusher](https://github.com/syscrusher))
 - bugfixes (thanks everyone!)
 
