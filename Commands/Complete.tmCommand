@@ -11,7 +11,6 @@ require "open3"
 
 require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
 require ENV['TM_SUPPORT_PATH'] + "/lib/escape.rb"
-require ENV['TM_SUPPORT_PATH'] + "/lib/tm/require_cmd.rb"
 require ENV['TM_SUPPORT_PATH'] + "/lib/tm/htmloutput.rb"
 require ENV['TM_SUPPORT_PATH'] + "/lib/web_preview"
 
