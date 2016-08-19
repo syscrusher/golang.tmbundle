@@ -1,12 +1,9 @@
 #!/usr/bin/env ruby18 -wKU
 
-require "#{ENV['TM_SUPPORT_PATH']}/lib/escape"
-require "#{ENV['TM_SUPPORT_PATH']}/lib/exit_codes"
-require "#{ENV['TM_SUPPORT_PATH']}/lib/ui"
-require "#{ENV['TM_SUPPORT_PATH']}/lib/web_preview"
-require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/require_cmd.rb"
-require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
-require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
+require ENV['TM_SUPPORT_PATH'] + '/lib/exit_codes'
+require ENV['TM_SUPPORT_PATH'] + '/lib/tm/executor'
+require ENV['TM_SUPPORT_PATH'] + '/lib/tm/process'
+require ENV['TM_SUPPORT_PATH'] + '/lib/tm/save_current_document'
 
 # TextMate's special GOPATH used in .tm_properties files prepended to the environment's GOPATH
 ENV['GOPATH'] = (ENV.has_key?('TM_GOPATH') ? ENV['TM_GOPATH'] : '') +
