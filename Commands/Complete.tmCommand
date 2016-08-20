@@ -72,7 +72,7 @@ def make_completion_hash(line)
     depth = 0
     sig.chars { |ch|
       depth-=1 if ch == ")"
-      depths &lt;&lt; depth
+      depths << depth
       depth+=1 if ch == "("
     }
     return depths
@@ -82,7 +82,7 @@ def make_completion_hash(line)
   def get_f_args(sig)
     depths = depth_at_i(sig)
     pos = sig.index(")")
-    while pos != nil &amp;&amp; depths[pos] &gt; 0
+    while pos != nil &amp;&amp; depths[pos] > 0
       pos = sig.index(")", pos+1)
     end
     return sig[ Range.new(sig.index("(")+1, pos - 1) ]
@@ -96,14 +96,14 @@ def make_completion_hash(line)
 
     while pos != nil
       if depths[pos] == 0
-        args &lt;&lt; sig[ Range.new(start, pos-1) ]  
+        args << sig[ Range.new(start, pos-1) ]  
         start = pos+1
       end
       pos = sig.index(",", pos+1)
     end
 
     lastarg = sig[ Range.new(start, sig.length) ].strip
-    args &lt;&lt; lastarg unless lastarg == ""
+    args << lastarg unless lastarg == ""
     return args
   end
 
@@ -114,12 +114,12 @@ def make_completion_hash(line)
     insert = ""
   end
   
-  return { 'match' =&gt; match, 'display' =&gt;  display, 'insert' =&gt; insert, 'image' =&gt; image }
+  return { 'match' => match, 'display' =>  display, 'insert' => insert, 'image' => image }
 end
 
 # build the list of completion choices.
 hash = output.split("\n").collect { |v| make_completion_hash( v ) }
-options = { :extra_chars =&gt; "_", :case_insensitive =&gt; false }
+options = { :extra_chars => "_", :case_insensitive => false }
 
 # if there is only one match, insert. no need to show the menu
 if hash.length == 1

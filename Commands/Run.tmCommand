@@ -10,7 +10,7 @@
 	<string>#!/usr/bin/env ruby
 
 require "#{ENV['TM_BUNDLE_SUPPORT']}/gomate"
-Go::go "run", :verb =&gt; "Running"
+Go::go "run", :verb => "Running"
 </string>
 	<key>input</key>
 	<string>document</string>

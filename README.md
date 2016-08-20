@@ -22,8 +22,9 @@ This bundle uses gocode for completion, gogetdoc for documentation, golint for l
 	go get -u golang.org/x/tools/cmd/goimports
 	go get -u github.com/golang/lint/golint
 
-You may override the following TextMate variables in the preferences (adjust paths to your own configuration):
+You may override the following TextMate variables in the preferences (adjust paths to your own configuration). TextMate does not inherit the users environment unless it is launched from the command line. It may be necessary to set TM_GOPATH and GOROOT.
 
+	TM_GO=/usr/local/bin/go
 	TM_GOPATH=/Users/myuser
 	TM_GOCODE=/Users/myuser/bin/gocode
 	TM_GOGETDOC=/Users/myuser/bin/gogetdoc

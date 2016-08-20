@@ -7,7 +7,7 @@
 	<key>contactName</key>
 	<string>syscrusher</string>
 	<key>description</key>
-	<string>Support for the &lt;a href=&quot;http://golang.org&quot;&gt;Go programming language&lt;/a&gt;.</string>
+	<string>Support for the <a href="http://golang.org"> Go programming language</a>.</string>
 	<key>mainMenu</key>
 	<dict>
 		<key>excludedItems</key>
