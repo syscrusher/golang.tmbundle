@@ -6,40 +6,40 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby18
-require &quot;shellwords&quot;
-require &quot;#{ENV[&apos;TM_BUNDLE_SUPPORT&apos;]}/gomate&quot;  # import to get dynamic gopath if set
+require "shellwords"
+require "#{ENV['TM_BUNDLE_SUPPORT']}/gomate"  # import to get dynamic gopath if set
 
 def import_path
-  if ENV.has_key? &apos;TM_SELECTED_TEXT&apos;
-    ENV[&apos;TM_SELECTED_TEXT&apos;]
-  elsif ENV[&apos;TM_CURRENT_LINE&apos;] =~ /^\s*(?:import\s+)?(?:\.|[[:alpha:]_][[:alnum:]_]*\s+)?([&quot;`])(.*?)\1/;
+  if ENV.has_key? 'TM_SELECTED_TEXT'
+    ENV['TM_SELECTED_TEXT']
+  elsif ENV['TM_CURRENT_LINE'] =~ /^\s*(?:import\s+)?(?:\.|[[:alpha:]_][[:alnum:]_]*\s+)?(["`])(.*?)\1/;
     $2
   else
     defaultText = %x{ /usr/bin/pbpaste -pboard find }
-    require &quot;#{ENV[&apos;TM_SUPPORT_PATH&apos;]}/lib/ui.rb&quot;
-    TextMate::UI.request_string :title =&gt; &quot;Open Package&quot;, :default =&gt; defaultText, :prompt =&gt; &quot;Which package do you wish to open?&quot;
+    require "#{ENV['TM_SUPPORT_PATH']}/lib/ui.rb"
+    TextMate::UI.request_string :title =&gt; "Open Package", :default =&gt; defaultText, :prompt =&gt; "Which package do you wish to open?"
   end
 end
 
 def go_path
-  env = %x{&quot;${TM_GO:-go}&quot; env}
+  env = %x{"${TM_GO:-go}" env}
   if $? == 0
     lcal, root = [], []
-    env.scan(/^GO(PATH|ROOT)=&quot;(.*)&quot;/) do |key,value|
+    env.scan(/^GO(PATH|ROOT)="(.*)"/) do |key,value|
       case key
-      when &apos;PATH&apos;; lcal = value.split(&apos;:&apos;).map { |dir| &quot;#{dir}/src&quot; }
-      when &apos;ROOT&apos;; root = value.split(&apos;:&apos;).map { |dir| &quot;#{dir}/src/pkg&quot; }
+      when 'PATH'; lcal = value.split(':').map { |dir| "#{dir}/src" }
+      when 'ROOT'; root = value.split(':').map { |dir| "#{dir}/src/pkg" }
       end
     end
     [ lcal, root ].flatten
   else
-    ENV[&apos;GOPATH&apos;].to_s.split(&apos;:&apos;).map { |dir| &quot;#{dir}/src&quot; }
+    ENV['GOPATH'].to_s.split(':').map { |dir| "#{dir}/src" }
   end
 end
 
 def find_package_path(package)
-  if ENV.has_key?(&apos;TM_GO_DYNAMIC_PKG_PATH&apos;)
-    path = `#{ENV[&apos;TM_GO_DYNAMIC_PKG_PATH&apos;]} #{package}`.chomp
+  if ENV.has_key?('TM_GO_DYNAMIC_PKG_PATH')
+    path = `#{ENV['TM_GO_DYNAMIC_PKG_PATH']} #{package}`.chomp
     return path if path != nil &amp;&amp; !path.empty?
   end
   
@@ -55,10 +55,10 @@ end
 
 if package = import_path()
   if path = find_package_path(package)
-    %x{&quot;$TM_MATE&quot; #{path.shellescape}}
+    %x{"$TM_MATE" #{path.shellescape}}
   else
-    require &quot;#{ENV[&apos;TM_SUPPORT_PATH&apos;]}/lib/exit_codes.rb&quot;
-    TextMate.exit_show_tool_tip &quot;Unable to locate package for import path ‘#{package}’.&quot;
+    require "#{ENV['TM_SUPPORT_PATH']}/lib/exit_codes.rb"
+    TextMate.exit_show_tool_tip "Unable to locate package for import path ‘#{package}’."
   end
 end
 </string>

@@ -7,6 +7,7 @@
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+. "${TM_BUNDLE_SUPPORT}/go_setup.sh"
 
 (eval "${TM_GOFMT:-gofmt}") || exit_show_tool_tip</string>
 	<key>input</key>
