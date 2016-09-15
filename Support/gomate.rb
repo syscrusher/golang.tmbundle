@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby -wKU
 
 require ENV['TM_SUPPORT_PATH'] + '/lib/exit_codes'
-require ENV['TM_SUPPORT_PATH'] + '/lib/textmate"
+require ENV['TM_SUPPORT_PATH'] + '/lib/textmate'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/executor'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/process'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/save_current_document'
