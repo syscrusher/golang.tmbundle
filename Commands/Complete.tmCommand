@@ -72,7 +72,7 @@ def make_completion_hash(line)
     depth = 0
     sig.chars { |ch|
       depth-=1 if ch == ")"
-      depths << depth
+      depths &lt;&lt; depth
       depth+=1 if ch == "("
     }
     return depths
@@ -96,14 +96,14 @@ def make_completion_hash(line)
 
     while pos != nil
       if depths[pos] == 0
-        args << sig[ Range.new(start, pos-1) ]  
+        args &lt;&lt; sig[ Range.new(start, pos-1) ]
         start = pos+1
       end
       pos = sig.index(",", pos+1)
     end
 
     lastarg = sig[ Range.new(start, sig.length) ].strip
-    args << lastarg unless lastarg == ""
+    args &lt;&lt; lastarg unless lastarg == ""
     return args
   end
 
