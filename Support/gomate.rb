@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby -wKU
 
 require ENV['TM_SUPPORT_PATH'] + '/lib/exit_codes'
+require ENV['TM_SUPPORT_PATH'] + '/lib/textmate"
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/executor'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/process'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/save_current_document'
@@ -88,7 +89,42 @@ module Go
     else
       TextMate.exit_show_tool_tip(err)
     end
-    
+
+  end
+
+  def Go::godef
+    # TextMate's special TM_GODEF or expect 'godef' on PATH
+    godef_cmd = ENV['TM_GODEF'] || 'godef'
+
+    TextMate.save_if_untitled('go')
+
+    # load current document from stdin
+    document = []
+    while line = $stdin.gets
+      document.push(line)
+    end
+
+    # byte offset of cursor position from the beginning of file
+    cursor = document[ 0, ENV['TM_LINE_NUMBER'].to_i - 1].join().length + ENV['TM_LINE_INDEX'].to_i
+
+    args = []
+    args.push(godef_cmd)
+    args.push('-f')
+    args.push(ENV['TM_FILEPATH'])
+    args.push('-o')
+    args.push("#{cursor}")
+
+    # /usr/local/Cellar/go/1.7.1/libexec/src/database/sql/sql.go:960:15
+    out, err = TextMate::Process.run(*args)
+
+    if err.nil? || err == ''
+      file_details = out.split(':')
+      TextMate.go_to(:file => file_details[0],
+                     :line => file_details[1],
+                     :column => file_details[2].to_i)
+    else
+      TextMate.exit_show_tool_tip(err)
+    end
   end
 
   def Go::golint

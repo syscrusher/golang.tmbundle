@@ -10,6 +10,7 @@
 - Formatting with gofmt
 - Automatic imports with goimports
 - Linting with golint
+- Find symbol information with godef
 - 45 snippets
 
 ### Installation
@@ -21,6 +22,7 @@ This bundle uses gocode for completion, gogetdoc for documentation, golint for l
 	go get -u github.com/zmb3/gogetdoc
 	go get -u golang.org/x/tools/cmd/goimports
 	go get -u github.com/golang/lint/golint
+	go get -u github.com/rogpeppe/godef
 
 You may override the following TextMate variables in the preferences (adjust paths to your own configuration). TextMate does not inherit the users environment unless it is launched from the command line. It may be necessary to set TM_GOPATH and GOROOT.
 
@@ -31,6 +33,7 @@ You may override the following TextMate variables in the preferences (adjust pat
 	TM_GOFMT=/Users/myuser/bin/gofmt # or /Users/myuser/bin/goimports
 	TM_GOIMPORTS=/Users/myuser/bin/goimports
 	TM_GOLINT=/Users/myuser/bin/golint
+	TM_GODEF=/Users/myuser/bin/godef
 
 ### Snippets
 
@@ -113,6 +116,7 @@ Changes from the original version (see git log for more details):
 
 - Substantially improved syntax highlighting (thanks [nanoant](https://github.com/nanoant))
 - Support for goimports and golint (thanks [fmccann](https://github.com/fmccann))
+- Support for godef (thanks [taterbase](https://github.com/taterbase))
 - Users can supply commands via ENV variables (TM\_GO\_DYNAMIC\_GOPATH, TM\_GO\_DYNAMIC\_PKG, TM\_GO\_DYNAMIC\_PKG\_PATH). The bundle will consult these commands if defined to dynamically change the gopath or package based on the current directory. (thanks [fmccann](https://github.com/fmccann))
 - all non-run go commands operate on the current directory instead of per file if the package is not defined dynamically. (thanks [tg](https://github.com/tg)).
 - run and build work on unsaved files (thanks [tg](https://github.com/tg))
