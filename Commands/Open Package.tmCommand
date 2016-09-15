@@ -6,8 +6,8 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby18
-require 'shellwords'
-require ENV['TM_BUNDLE_SUPPORT'] + '/gomate'  # import to get dynamic gopath if set
+require "shellwords"
+require "#{ENV['TM_BUNDLE_SUPPORT']}/gomate"  # import to get dynamic gopath if set
 
 def import_path
   if ENV.has_key? 'TM_SELECTED_TEXT'
@@ -84,3 +84,4 @@ end
 	<integer>2</integer>
 </dict>
 </plist>
+

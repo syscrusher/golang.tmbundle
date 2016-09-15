@@ -91,45 +91,6 @@ module Go
     
   end
 
-  def Go::gofmt
-    # TextMate's special TM_GOFMT or expect 'gofmt' on PATH
-    gofmt_cmd = ENV['TM_GOFMT'] || 'gofmt'
-    TextMate.save_if_untitled('go')
-
-    args = []
-    args.push(gofmt_cmd)
-    args.push(ENV['TM_FILEPATH'])
-
-    out, err = TextMate::Process.run(*args)
-
-    if err.nil? || err == ''
-      puts out
-    else
-      args << {:use_hashbang => false, :version_args => ['version'], :version_regex => /\Ago version (.*)/}
-      TextMate::Executor.run(*args)
-      TextMate.exit_show_html
-    end
-  end
-
-  def Go::goimports
-    goimport_cmd = ENV['TM_GOIMPORTS'] || 'goimports'
-    TextMate.save_if_untitled('go')
-
-    args = []
-    args.push(goimport_cmd)
-    args.push(ENV['TM_FILEPATH'])
-
-    out, err = TextMate::Process.run(*args)
-
-    if err.nil? || err == ''
-      puts out
-    else
-      args << {:use_hashbang => false}
-      TextMate::Executor.run(*args)
-      TextMate.exit_show_html
-    end
-  end
-
   def Go::golint
     golint = ENV['TM_GOLINT'] || 'golint'
     TextMate.save_if_untitled('go')
