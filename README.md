@@ -16,24 +16,46 @@
 ### Installation
 TextMate should detect .go files and load this bundle automatically.
 
-This bundle uses gocode for completion, gogetdoc for documentation, golint for linting, and goimports for automatic imports and formatting. These can be installed with the following commands:
+This bundle relies on amazing open source tooling for some functionality. These utilities can be installed with the following commands:
 
-	go get -u github.com/nsf/gocode
-	go get -u github.com/zmb3/gogetdoc
-	go get -u golang.org/x/tools/cmd/goimports
-	go get -u github.com/golang/lint/golint
-	go get -u github.com/rogpeppe/godef
+	go get -u github.com/nsf/gocode					# completion
+	go get -u github.com/zmb3/gogetdoc				# documentation
+	go get -u golang.org/x/tools/cmd/goimports		# import resolution/rewriting
+	go get -u github.com/golang/lint/golint			# linting
+	go get -u github.com/rogpeppe/godef				# goto definition
+	go get -u github.com/alecthomas/gometalinter	# metalinting
 
 You may override the following TextMate variables in the preferences (adjust paths to your own configuration). TextMate does not inherit the users environment unless it is launched from the command line. It may be necessary to set TM_GOPATH and GOROOT.
 
 	TM_GO=/usr/local/bin/go
-	TM_GOPATH=/Users/myuser
+	TM_GOPATH=/Users/myuser/go
 	TM_GOCODE=/Users/myuser/bin/gocode
 	TM_GOGETDOC=/Users/myuser/bin/gogetdoc
 	TM_GOFMT=/Users/myuser/bin/gofmt # or /Users/myuser/bin/goimports
 	TM_GOIMPORTS=/Users/myuser/bin/goimports
 	TM_GOLINT=/Users/myuser/bin/golint
 	TM_GODEF=/Users/myuser/bin/godef
+	TM_GOMETALINTER=/Users/myuser/bin/gometalinter
+
+### Commands
+
+Shortcut		|	Content
+------- 		|	-------
+Cmd-R			|	Compile and run the current file.
+Cmd-Shift-R		|	Compile and test the current package.
+Cmd-B			|	Build the current package.
+Cmd-Shift-I		|	Install the current package.
+
+Cmd-Shift-D		|	Open either a package listed in imports or a user-supplied package.
+Ctrl-H			|	Show the Go HTML documentation for the currently-selected symbol.
+Cmd-D			|	Go to the original definition of the currently selected symbol.
+
+Ctrl-Shift-H	|	Reformat the document according to the Go style guidelines, automatically resolve imports.
+Ctrl-Shift-L	|	Run 'go lint'
+Ctrl-Shift-M	|	Run the default linters supplied by gometalinter
+Ctrl-Shift-V	|	Run 'go vet'
+
+Opt-ESC			|	Complete the symbol under the cursor.
 
 ### Snippets
 
@@ -59,28 +81,28 @@ Snippet		|	Content
 ------- 	|	-------
 :			|	A short-form variable initializer (i.e. 'name := value').
 \[\]		|	A slice variable type; expands to '[]+type+', so is usable inside other snippets.
-ch		|	A channel type.
-con		|	A single constant declaration.
+ch			|	A channel type.
+con			|	A single constant declaration.
 cons		|	A multiple constant declaration block.
-fun		|	A function type definition statement.
+fun			|	A function type definition statement.
 inte		|	An interface definition with a single method.
-mk		|	A make statement (used for creating & initializing channels, maps, etc.).
-map		|	A map variable type; expands to 'map[+keytype+]+valuetype+'.
-ew		|	A new statement (used to create & initialize structure types).
-st		|	A struct definition with a single member.
+mk			|	A make statement (used for creating & initializing channels, maps, etc.).
+map			|	A map variable type; expands to 'map[+keytype+]+valuetype+'.
+ew			|	A new statement (used to create & initialize structure types).
+st			|	A struct definition with a single member.
 type		|	A type declaration, with name and variable type as tab-stops.
 types		|	A block with multiple type declarations.
-var		|	Declare a variable with an optional initial value (long form, i.e. 'var x int = 10').
+var			|	Declare a variable with an optional initial value (long form, i.e. 'var x int = 10').
 vars		|	A block of long-form variable declarations.
 
 #### Functions
 
 Snippet		|	Content
 ------- 	|	-------
-de		|	A deferred goroutine call (defines the function inline).
+de			|	A deferred goroutine call (defines the function inline).
 func		|	A plain (global) function declaration, with tab stops for name, parameters, and a single optional result.
 funcv		|	A plain (global) function declaration, with tab stops for name, parameters, and multiple results.
-go		|	An immediate goroutine call (defines the function inline).
+go			|	An immediate goroutine call (defines the function inline).
 init		|	A template for a module's +init()+ function, with a tab stop at its body.
 main		|	A template for a +main()+ function with a tab stop at its body.
 meth		|	Declares a function on a particular type, with additional tab stops for receiver name and type and a single optional result.
@@ -97,17 +119,6 @@ forr		|	A for loop iterating over a collection's full range.
 if			|	An if statement, properly formatted (Go requires the use of {} on ifs, unlike C; this throws me sometimes).
 sel			|	A select statement, for looping over channel conditions.
 sw			|	A switch statement with an optional expression.
-
-#### Commands
-
-Shortcut		|	Content
-------- 		|	-------
-Cmd-K			|	Build the current package or executable.
-Cmd-R			|	Compile and run the current file.
-Cmd-Opt-T		|	Launch the unittests for the current package using "go test".
-Ctrl-Shift-H	|	Reformat the document according to the Go style guidelines.
-Ctrl-H			|	Show the Go HTML documentation for the currently-selected symbol.
-\<ESC\>			|	Complete the symbol under the cursor.
 
 ### Thanks
 
