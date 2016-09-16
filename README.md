@@ -10,6 +10,7 @@
 - Formatting with gofmt
 - Automatic imports with goimports
 - Linting with golint
+- Multiple linters supported with gometalinter
 - Find symbol information with godef
 - 45 snippets
 
@@ -45,16 +46,13 @@ Cmd-R			|	Compile and run the current file.
 Cmd-Shift-R		|	Compile and test the current package.
 Cmd-B			|	Build the current package.
 Cmd-Shift-I		|	Install the current package.
-
 Cmd-Shift-D		|	Open either a package listed in imports or a user-supplied package.
 Ctrl-H			|	Show the Go HTML documentation for the currently-selected symbol.
 Cmd-D			|	Go to the original definition of the currently selected symbol.
-
 Ctrl-Shift-H	|	Reformat the document according to the Go style guidelines, automatically resolve imports.
 Ctrl-Shift-L	|	Run 'go lint'
 Ctrl-Shift-M	|	Run the default linters supplied by gometalinter
 Ctrl-Shift-V	|	Run 'go vet'
-
 Opt-ESC			|	Complete the symbol under the cursor.
 
 ### Snippets
