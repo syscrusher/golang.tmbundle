@@ -144,4 +144,17 @@ module Go
 
     TextMate::Executor.run(golint, *args)
   end
+  
+  def Go::gometalinter
+    gometalinter = ENV['TM_GOMETALINTER'] || 'gometalinter'
+    TextMate.save_if_untitled('go')
+    
+    args = Array.new
+    opts = {:use_hashbang => false, :verb => 'MetaLinting', :version_replace => 'gometalinter'}
+
+    args.push(ENV['TM_DIRECTORY'])
+    args.push(opts)
+
+    TextMate::Executor.run(gometalinter, *args)
+  end
 end
