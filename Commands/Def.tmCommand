@@ -16,7 +16,7 @@ Go::godef</string>
 	<key>keyEquivalent</key>
 	<string>@d</string>
 	<key>name</key>
-	<string>Def</string>
+	<string>Go to Definition</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>

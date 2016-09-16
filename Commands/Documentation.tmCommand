@@ -19,7 +19,7 @@ Go::gogetdoc
 	<key>keyEquivalent</key>
 	<string>^h</string>
 	<key>name</key>
-	<string>Documentation</string>
+	<string>Show Documentation</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
