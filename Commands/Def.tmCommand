@@ -13,8 +13,6 @@ Go::godef</string>
 	<string>selection</string>
 	<key>inputFormat</key>
 	<string>text</string>
-	<key>keyEquivalent</key>
-	<string>@d</string>
 	<key>name</key>
 	<string>Go to Definition</string>
 	<key>outputCaret</key>
@@ -23,6 +21,8 @@ Go::godef</string>
 	<string>text</string>
 	<key>outputLocation</key>
 	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.go</string>
 	<key>uuid</key>
 	<string>A04DD936-EEB1-484E-BF47-98BD6709D00C</string>
 	<key>version</key>
