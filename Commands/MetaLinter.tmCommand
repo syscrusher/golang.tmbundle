@@ -24,6 +24,17 @@ Go::gometalinter
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>gometalinter</string>
+			<key>moreInfoURL</key>
+			<string>https://github.com/alecthomas/gometalinter</string>
+			<key>variable</key>
+			<string>TM_GOMETALINTER</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.go</string>
 	<key>uuid</key>

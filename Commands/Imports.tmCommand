@@ -30,7 +30,7 @@
 			<key>command</key>
 			<string>goimports</string>
 			<key>moreInfoURL</key>
-			<string>https://github.com/syscrusher/golang.tmbundle</string>
+			<string>https://golang.org/x/tools/cmd/goimports</string>
 			<key>variable</key>
 			<string>TM_GOIMPORTS</string>
 		</dict>

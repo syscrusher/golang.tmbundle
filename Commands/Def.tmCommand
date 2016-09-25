@@ -23,6 +23,17 @@ Go::godef</string>
 	<string>text</string>
 	<key>outputLocation</key>
 	<string>toolTip</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>godef</string>
+			<key>moreInfoURL</key>
+			<string>https://github.com/rogpeppe/godef</string>
+			<key>variable</key>
+			<string>TM_GODEF</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.go</string>
 	<key>uuid</key>
