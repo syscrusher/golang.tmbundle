@@ -679,11 +679,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#storage_type</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#storage_modifier</string>
+					<string>#keywords</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -846,11 +842,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#storage_type</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#storage_modifier</string>
+					<string>#keywords</string>
 				</dict>
 				<dict>
 					<key>include</key>
