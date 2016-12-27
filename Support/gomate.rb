@@ -5,6 +5,7 @@ require ENV['TM_SUPPORT_PATH'] + '/lib/textmate'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/executor'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/process'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/save_current_document'
+require 'pathname'
 
 # TextMate's special GOPATH used in .tm_properties files prepended to the environment's GOPATH
 ENV['GOPATH'] = (ENV.has_key?('TM_GOPATH') ? ENV['TM_GOPATH'] : '') +
@@ -119,7 +120,8 @@ module Go
 
     if err.nil? || err == ''
       file_details = out.split(':')
-      TextMate.go_to(:file => file_details[0],
+      file = Pathname.new(file_details[0]).realpath
+      TextMate.go_to(:file => file,
                      :line => file_details[1],
                      :column => file_details[2].to_i)
     else
