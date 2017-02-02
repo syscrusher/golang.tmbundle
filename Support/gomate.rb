@@ -120,7 +120,7 @@ module Go
     if err.nil? || err == ''
       file_details = out.split(':')
       TextMate.go_to(:file => file_details[0],
-                     :line => file_details[1],
+                     :line => file_details[1].to_i,
                      :column => file_details[2].to_i)
     else
       TextMate.exit_show_tool_tip(err)
