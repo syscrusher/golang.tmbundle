@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby18
+	<string>#!/usr/bin/env ruby18 -wKU
 require "shellwords"
 require "#{ENV['TM_BUNDLE_SUPPORT']}/gomate"  # import to get dynamic gopath if set
 
@@ -28,7 +28,7 @@ def go_path
     env.scan(/^GO(PATH|ROOT)="(.*)"/) do |key,value|
       case key
       when 'PATH'; lcal = value.split(':').map { |dir| "#{dir}/src" }
-      when 'ROOT'; root = value.split(':').map { |dir| "#{dir}/src/pkg" }
+      when 'ROOT'; root = value.split(':').map { |dir| "#{dir}/src" }
       end
     end
     [ lcal, root ].flatten
