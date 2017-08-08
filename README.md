@@ -25,6 +25,7 @@ This bundle relies on amazing open source tooling for some functionality. These 
 	go get -u github.com/golang/lint/golint			# linting
 	go get -u github.com/rogpeppe/godef				# goto definition
 	go get -u github.com/alecthomas/gometalinter	# metalinting
+	go get -u golang.org/x/tools/cmd/gorename		# Rename go identifiers
 
 You may override the following TextMate variables in the preferences (adjust paths to your own configuration). TextMate does not inherit the users environment unless it is launched from the command line. It may be necessary to set TM_GOPATH and GOROOT.
 
@@ -37,6 +38,7 @@ You may override the following TextMate variables in the preferences (adjust pat
 	TM_GOLINT=/Users/myuser/bin/golint
 	TM_GODEF=/Users/myuser/bin/godef
 	TM_GOMETALINTER=/Users/myuser/bin/gometalinter
+	TM_GORENAME=/Users/myuser/bin/gorename
 
 ### Commands
 
