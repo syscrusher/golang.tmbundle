@@ -48,6 +48,8 @@ end</string>
 	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^R</string>
 	<key>name</key>
 	<string>Rename</string>
 	<key>outputCaret</key>
