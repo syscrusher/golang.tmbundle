@@ -1,7 +1,7 @@
-## golang.tmbundle
+# golang.tmbundle
 (a [TextMate 2](https://github.com/textmate/textmate) bundle for the [go programming language](https://golang.org))
 
-### Features
+## Features
 
 - Syntax highlighting
 - Run, build, test, and install packages
@@ -11,36 +11,48 @@
 - Automatic imports with goimports
 - Linting with golint
 - Multiple linters supported with gometalinter
+- Rename go identifiers with gorename
 - Find symbol information with godef
 - 45 snippets
 
-### Installation
-TextMate should detect .go files and load this bundle automatically.
+## Installation
+TextMate should detect .go files and load this bundle automatically. Syntax highlighting will work, but commands may not.
 
 This bundle relies on amazing open source tooling for some functionality. These utilities can be installed with the following commands:
 
-	go get -u github.com/nsf/gocode					# completion
-	go get -u github.com/zmb3/gogetdoc				# documentation
-	go get -u golang.org/x/tools/cmd/goimports		# import resolution/rewriting
-	go get -u github.com/golang/lint/golint			# linting
-	go get -u github.com/rogpeppe/godef				# goto definition
-	go get -u github.com/alecthomas/gometalinter	# metalinting
-	go get -u golang.org/x/tools/cmd/gorename		# Rename go identifiers
+Command											| Use
+-------											| ---
+go get -u github.com/nsf/gocode					| Code completion
+go get -u github.com/zmb3/gogetdoc				| Documentation
+go get -u golang.org/x/tools/cmd/goimports		| Package import resolution/rewriting
+go get -u github.com/golang/lint/golint			| Standard linter
+go get -u github.com/alecthomas/gometalinter	| Combination of multiple linters
+go get -u github.com/rogpeppe/godef				| goto definition
+go get -u golang.org/x/tools/cmd/gorename		| Rename go identifiers
 
-You may override the following TextMate variables in the preferences (adjust paths to your own configuration). TextMate does not inherit the users environment unless it is launched from the command line. It may be necessary to set TM_GOPATH and GOROOT.
+### TextMate Variables
+TextMate does not inherit the users environment unless it is launched from the command line.
+You may have to set TM_GOPATH and GOROOT inside of TextMate for all functionality to work.
+You do not have to set TM_GOPATH if your GOPATH is ~/go and you are running [Go >1.8](https://golang.org/doc/go1.8#gopath).
+You do not have to set GOROOT in most circumstances. See [here](https://dave.cheney.net/2013/06/14/you-dont-need-to-set-goroot-really) for more information.
 
-	TM_GO=/usr/local/bin/go
-	TM_GOPATH=/Users/myuser/go
-	TM_GOCODE=/Users/myuser/bin/gocode
-	TM_GOGETDOC=/Users/myuser/bin/gogetdoc
-	TM_GOFMT=/Users/myuser/bin/gofmt # or /Users/myuser/bin/goimports
-	TM_GOIMPORTS=/Users/myuser/bin/goimports
-	TM_GOLINT=/Users/myuser/bin/golint
-	TM_GODEF=/Users/myuser/bin/godef
-	TM_GOMETALINTER=/Users/myuser/bin/gometalinter
-	TM_GORENAME=/Users/myuser/bin/gorename
+You may override the following TextMate variables in the preferences, but most of these should be unnecessary (adjust paths to your own configuration):
 
-### Commands
+Variable		| Suggested location
+--------		| ------------------
+TM_GO			| /usr/local/bin/go
+TM_GOPATH		| /Users/myuser/go
+GOROOT			| /usr/local/opt/go/libexec
+TM_GOFMT		| /Users/myuser/go/bin/gofmt OR TM_GOFMT=/Users/myuser/go/bin/goimports for automatic import resolution on file save
+TM_GOCODE		| /Users/myuser/go/bin/gocode
+TM_GOGETDOC		| /Users/myuser/go/bin/gogetdoc
+TM_GOIMPORTS	| /Users/myuser/go/bin/goimports
+TM_GOLINT		| /Users/myuser/go/bin/golint
+TM_GODEF		| /Users/myuser/go/bin/godef
+TM_GOMETALINTER	| /Users/myuser/go/bin/gometalinter
+TM_GORENAME		| /Users/myuser/go/bin/gorename
+
+## Commands
 
 Shortcut		|	Content
 ------- 		|	-------
@@ -57,9 +69,9 @@ Ctrl-Shift-M	|	Run the default linters supplied by gometalinter
 Ctrl-Shift-V	|	Run 'go vet'
 Opt-ESC			|	Complete the symbol under the cursor.
 
-### Snippets
+## Snippets
 
-#### Simple Statements
+### Simple Statements
 
 Snippet		|	Content
 ------- 	|	-------
@@ -75,7 +87,7 @@ imps		|	A multiple-import statement.
 pkg			|	A package declaration including an optional comment block for packages other than 'main'.
 ret			|	A return statement with optional return value.
 
-#### Initializers and Declarations
+### Initializers and Declarations
 
 Snippet		|	Content
 ------- 	|	-------
@@ -95,7 +107,7 @@ types		|	A block with multiple type declarations.
 var			|	Declare a variable with an optional initial value (long form, i.e. 'var x int = 10').
 vars		|	A block of long-form variable declarations.
 
-#### Functions
+### Functions
 
 Snippet		|	Content
 ------- 	|	-------
@@ -108,7 +120,7 @@ main		|	A template for a +main()+ function with a tab stop at its body.
 meth		|	Declares a function on a particular type, with additional tab stops for receiver name and type and a single optional result.
 methv		|	Declares a function on a particular type, with additional tab stops for receiver name and type and multiple results.
 
-#### Control Statements
+### Control Statements
 
 Snippet		|	Content
 ------- 	|	-------
@@ -120,7 +132,7 @@ if			|	An if statement, properly formatted (Go requires the use of {} on ifs, un
 sel			|	A select statement, for looping over channel conditions.
 sw			|	A switch statement with an optional expression.
 
-### Thanks
+## Thanks
 
 This repository is a fork from [Jim Dovey's bundle](https://github.com/AlanQuatermain/go-tmbundle) with additional improvements merged from around the community.
 Changes from the original version (see git log for more details):
@@ -134,6 +146,7 @@ Changes from the original version (see git log for more details):
 - added print, println, printf, and fprintf snippets; improved struct snippet (thanks 
 [jish](https://github.com/jish))
 - HiDPI completion icons (thanks [nanoant](https://github.com/nanoant))
+- Bug fixes and improvements (thanks [msoap](https://github.com/msoap))
 - Improved, expanded documentation coverage (thanks [syscrusher](https://github.com/syscrusher))
 - Completion support for GOPATH and current package (thanks [syscrusher](https://github.com/syscrusher))
 - bugfixes (thanks everyone!)
