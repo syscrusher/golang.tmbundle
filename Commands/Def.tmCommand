@@ -10,6 +10,7 @@
 require ENV['TM_SUPPORT_PATH'] + '/lib/textmate'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/process'
 require ENV['TM_SUPPORT_PATH'] + '/lib/tm/save_current_document'
+require 'pathname'
 
 # TextMate's special TM_GODEF or expect 'godef' on PATH
 godef_cmd = ENV['TM_GODEF'] || 'godef'
@@ -37,7 +38,8 @@ out, err = TextMate::Process.run(*args)
 
 if err.nil? || err == ''
   file_details = out.split(':')
-  TextMate.go_to(:file =&gt; file_details[0],
+  file = Pathname.new(file_details[0]).realpath
+  TextMate.go_to(:file =&gt; file,
                  :line =&gt; file_details[1],
                  :column =&gt; file_details[2].to_i)
 elsif err.casecmp "godef: no identifier found";
@@ -52,7 +54,7 @@ end</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@D</string>
+	<string>^.</string>
 	<key>name</key>
 	<string>Go to Definition</string>
 	<key>outputCaret</key>
