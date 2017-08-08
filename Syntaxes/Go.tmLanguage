@@ -912,6 +912,7 @@
 					    [,;:_]?                                  # separator character (AltiVec)
 					    ((-?\d+)|\*(-?\d+\$)?)?                  # minimum field width
 					    (\.((-?\d+)|\*(-?\d+\$)?)?)?             # precision
+					    (\[\d+\])?                               # argument index
 					    [diouxXDOUeEfFgGaAcCsSpnvtTbyYhHmMzZq%]  # conversion type
 					</string>
 					<key>name</key>
