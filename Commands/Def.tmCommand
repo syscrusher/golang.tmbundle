@@ -40,7 +40,7 @@ if err.nil? || err == ''
   file_details = out.split(':')
   file = Pathname.new(file_details[0]).realpath
   TextMate.go_to(:file =&gt; file,
-                 :line =&gt; file_details[1],
+                 :line =&gt; file_details[1].to_i,
                  :column =&gt; file_details[2].to_i)
 elsif err.casecmp "godef: no identifier found";
   require "#{ENV['TM_SUPPORT_PATH']}/lib/ui.rb"
