@@ -549,7 +549,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b((0(x|X)[0-9a-fA-F]*)|((\d+\.?\d*)|(\.\d+))((e|E)(\+|-)?\d+)?)\b</string>
+					<string>\b((0(x|X)[0-9a-fA-F]*)|((\d+\.?\d*)|(\.\d+))((e|E)(\+|-)?\d+)?i?)\b</string>
 					<key>name</key>
 					<string>constant.numeric.go</string>
 				</dict>
