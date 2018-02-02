@@ -1060,7 +1060,7 @@
 			</dict>
 			<key>match</key>
 			<string>(?x)
-			         ^\s*(type)\s*
+			         ^\s*(type)\s+
 			          (?:([[:upper:]]\w*)|([[:alpha:]_]\w*))           # name of type
 			          ((?:[\[\]\w\d\s\/,._*&amp;&lt;&gt;-]|(?:interface\{\}))*)? # other type
 			</string>
