@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 if [ -z "${GOPATH}" ]; then
-	export GOPATH="${TM_GOPATH}"
+	if [ -z "${TM_GOPATH}" ]; then
+		export GOPATH="${HOME}/go"
+	else
+		export GOPATH="${TM_GOPATH}"
+	fi
 fi
