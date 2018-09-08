@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+. "${TM_BUNDLE_SUPPORT}/go_setup.sh"
+
+$GOPATH/bin/gomate notes
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~N</string>
+	<key>name</key>
+	<string>Gomate notes</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.go</string>
+	<key>uuid</key>
+	<string>96924418-0F77-4085-BBA1-194A51EC2880</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

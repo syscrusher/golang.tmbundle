@@ -5,8 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/bin/bash
-gomate gogetdoc
+	<string>#!/usr/bin/env bash
+. "${TM_BUNDLE_SUPPORT}/go_setup.sh"
+
+$GOPATH/bin/gomate getdoc
 </string>
 	<key>input</key>
 	<string>selection</string>
@@ -15,7 +17,7 @@ gomate gogetdoc
 	<key>keyEquivalent</key>
 	<string>@d</string>
 	<key>name</key>
-	<string>Gogetdoc</string>
+	<string>Gomate getdoc</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
