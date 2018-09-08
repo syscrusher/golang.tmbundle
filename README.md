@@ -29,6 +29,7 @@ go get -u github.com/golang/lint/golint			| Standard linter
 go get -u github.com/alecthomas/gometalinter	| Combination of multiple linters
 go get -u github.com/rogpeppe/godef				| goto definition
 go get -u golang.org/x/tools/cmd/gorename		| Rename go identifiers
+go get -u github.com/pokstad/gomate				| Various uses: symbol documentation, references, outline
 
 ### TextMate Variables
 TextMate does not inherit the users environment unless it is launched from the command line.
